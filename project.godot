@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="EDGFIRSTGAME2.0"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/start.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/main_scene="res://scenes/start.tscn"
 
 [input]
 

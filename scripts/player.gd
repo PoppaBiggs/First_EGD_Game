@@ -31,11 +31,9 @@ func _physics_process(delta: float) -> void:
 		#Handles wall_jumping(although crudely)
 		elif is_on_wall():
 			if Input.is_action_pressed("move_right"):
-				animated_sprite.flip_h = false
 				velocity.y = jump_force
 				velocity.x = -wall_jump_pushback
 			elif Input.is_action_pressed("move_left"):
-				animated_sprite.flip_h = true
 				velocity.y = jump_force
 				velocity.x = wall_jump_pushback
 	

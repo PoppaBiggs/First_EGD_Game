@@ -289,6 +289,8 @@ animations = [{
 radius = 6.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 5
+collision_layer = 2
 script = ExtResource("1_jdoeq")
 sprint_speed = 150.0
 decelerate_on_jump_release = 0.51
