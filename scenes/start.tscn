@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdsv33415d67e"]
+[gd_scene load_steps=7 format=3 uid="uid://bdsv33415d67e"]
 
 [ext_resource type="Script" path="res://scripts/start.gd" id="1_gh4q4"]
+[ext_resource type="Texture2D" uid="uid://bakxadj718mcw" path="res://assets/menu_screens/title_screen.jpg" id="2_6a50i"]
+[ext_resource type="FontFile" uid="uid://y0n2y7xkge7" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_87uqq"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7j3u4"]
-bg_color = Color(0.847059, 0.6, 0.207843, 0.670588)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wag6f"]
+texture = ExtResource("2_6a50i")
 
-[sub_resource type="Theme" id="Theme_c61xp"]
-default_font_size = 24
+[sub_resource type="Theme" id="Theme_u041s"]
+default_font = ExtResource("3_87uqq")
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_7xj2d"]
+default_font = ExtResource("3_87uqq")
+default_font_size = 32
 
 [node name="start" type="CanvasLayer"]
 script = ExtResource("1_gh4q4")
@@ -18,7 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.000458834
-theme_override_styles/panel = SubResource("StyleBoxFlat_7j3u4")
+theme_override_styles/panel = SubResource("StyleBoxTexture_wag6f")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -28,35 +35,19 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="Label" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -95.0
-offset_top = -116.0
-offset_right = 95.0
-offset_bottom = -93.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_c61xp")
-text = "WELCOME TO THE GAME
-"
-horizontal_alignment = 1
-
 [node name="Start" type="Button" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -68.5
-offset_top = -27.5
-offset_right = 68.5
-offset_bottom = 27.5
+offset_left = -125.0
+offset_top = 72.0
+offset_right = 125.0
+offset_bottom = 147.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_u041s")
 text = "START
 "
 
@@ -66,12 +57,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -68.5
-offset_top = 42.0
-offset_right = 68.5
-offset_bottom = 97.0
+offset_left = -125.0
+offset_top = 221.0
+offset_right = 125.0
+offset_bottom = 296.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_7xj2d")
 text = "QUIT"
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

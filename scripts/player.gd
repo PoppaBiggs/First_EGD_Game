@@ -10,15 +10,18 @@ extends CharacterBody2D
 #for variable jump height
 @export var jump_force = -300.0
 @export_range(0,1) var decelerate_on_jump_release = 0.1
-@export var wall_jump_pushback = 250
+@export var wall_jump_pushback = 200
 @export var wall_slide_gravity = 100
 var is_wall_sliding = false
 
 #calls the animated_sprite of our character
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+#hopefully for death animation
+
 
 func _physics_process(delta: float) -> void:
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -57,9 +60,9 @@ func _physics_process(delta: float) -> void:
 	
 	#flips the sprite
 	if direction > 0:
-		animated_sprite.flip_h = false
-	elif direction < 0:
 		animated_sprite.flip_h = true
+	elif direction < 0:
+		animated_sprite.flip_h = false
 	
 	#Play animations
 	#checks if the player is touching ground
@@ -80,16 +83,15 @@ func _physics_process(delta: float) -> void:
 	
 	#applies the movement
 	if direction:
-		#moves from current velocity to the product of direction and walkspeed, the delta is walkspeed * acceleration
-		#makes the character build up speed as the move
-		#only put speed in acceleration since putting it in deceleration would make it inconsistent
+			#moves from current velocity to the product of direction and walkspeed, the delta is walkspeed * acceleration
+			#makes the character build up speed as the move
+			#only put speed in acceleration since putting it in deceleration would make it inconsistent
 		velocity.x = move_toward(velocity.x, direction * speed, speed * acceleration)
 	else:
-		#moves the current velocity to the value 0(character is not moving), the delta is now walk_speed * deceleration
-		#makes the character slow down as they as they stop moving
+			#moves the current velocity to the value 0(character is not moving), the delta is now walk_speed * deceleration
+			#makes the character slow down as they as they stop moving
 		velocity.x = move_toward(velocity.x, 0, walk_speed * deceleration)
-
-	move_and_slide()
+	move_and_slide()	
 
 #the  original wall_slide function
 func wall_slide(delta):
