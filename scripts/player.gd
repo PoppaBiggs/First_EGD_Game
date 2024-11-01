@@ -19,21 +19,26 @@ var is_wall_sliding = false
 
 #hopefully for death animation
 
+#hopefully to make specific jumpable walls
+var can_wall_jump = false
+
 
 func _physics_process(delta: float) -> void:
 		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
+	
 	# Handles original jump.
 	if Input.is_action_just_pressed("jump"):
-		
 		if is_on_floor():
 			velocity.y = jump_force
 		#Handles wall_jumping(although crudely)
 		elif is_on_wall():
+			
 			if Input.is_action_pressed("move_right"):
+				
 				velocity.y = jump_force
 				velocity.x = -wall_jump_pushback
 			elif Input.is_action_pressed("move_left"):

@@ -356,25 +356,25 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dbgex"]
-radius = 6.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rtsg"]
+size = Vector2(11, 13.1038)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_jdoeq")
 sprint_speed = 150.0
 decelerate_on_jump_release = 0.51
 wall_slide_gravity = 35
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -12)
+position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_myfh2")
-animation = &"death"
+animation = &"idle"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.225248
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_dbgex")
+position = Vector2(-0.5, -8)
+scale = Vector2(1, 1.06839)
+shape = SubResource("RectangleShape2D_8rtsg")
